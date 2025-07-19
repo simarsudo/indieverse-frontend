@@ -58,8 +58,8 @@
 .large-image-preview-container {
     border-radius: 0.5rem;
     border: 1px solid #eee;
-    max-width: 30rem;
-    max-height: 30rem;
+    max-width: 35rem;
+    max-height: 35rem;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -9,6 +9,38 @@ type Props = {
   setImageUploaded: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
+async function uploadImage(image: File) {
+  const formData = new FormData();
+  formData.append("image", image);
+
+  const response = await fetch("http://localhost:8000/post/upload", {
+    method: "POST",
+    body: formData,
+  });
+
+  if (!response.ok) {
+    const errorMessage = await response.json();
+    throw new Error(errorMessage.detail);
+  }
+
+  return response.json();
+}
+
+async function generateMask(imageId: string) {
+  const response = await fetch("http://localhost:8000/post/generate-mask", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ image_id: imageId }),
+  });
+
+  if (!response.ok) {
+    const errorMessage = await response.json();
+    throw new Error(errorMessage.detail || "Mask generation failed");
+  }
+
+  return response.json();
+}
+
 function ImageUploadForm({
   image,
   setImage,
@@ -25,23 +57,12 @@ function ImageUploadForm({
       return;
     }
 
-    const formData = new FormData();
-    formData.append("image", image);
-
     setError(null);
     setIsUploading(true);
     try {
-      const response = await fetch("http://localhost:8000/post/upload", {
-        method: "POST",
-        body: formData,
-      });
-
-      if (!response.ok) {
-        const errorMessage = await response.json();
-        throw new Error(errorMessage.detail);
-      } else {
-        setImageUploaded(true);
-      }
+      const { id } = await uploadImage(image);
+      await generateMask(id);
+      setImageUploaded(true);
     } catch (error) {
       if (error instanceof Error) {
         setError(error.message);
