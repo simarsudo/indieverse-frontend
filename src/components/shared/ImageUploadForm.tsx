@@ -7,6 +7,7 @@ type Props = {
 
   setImage: React.Dispatch<React.SetStateAction<File | null>>;
   setImageUploaded: React.Dispatch<React.SetStateAction<boolean>>;
+  setImageId: React.Dispatch<React.SetStateAction<string | null>>;
 };
 
 async function uploadImage(image: File) {
@@ -44,7 +45,7 @@ async function generateMask(imageId: string) {
 function ImageUploadForm({
   image,
   setImage,
-
+  setImageId,
   setImageUploaded,
 }: Props) {
   const [isUploading, setIsUploading] = React.useState<boolean>(false);
@@ -61,6 +62,7 @@ function ImageUploadForm({
     setIsUploading(true);
     try {
       const { id } = await uploadImage(image);
+      setImageId(id);
       await generateMask(id);
       setImageUploaded(true);
     } catch (error) {
