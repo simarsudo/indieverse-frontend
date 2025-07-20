@@ -5,6 +5,30 @@
     padding: 2rem;
 }
 
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 100;
+    border-bottom: 2px solid var(--primary);
+    padding: 0.8rem 2rem;
+    box-shadow: 0 1px 3px 0 var(--primary);
+}
+
+.navbar > p {
+    transform: skewX(-12deg);
+    max-width: min-content;
+    padding: 0.2rem 0.5rem;
+    border-radius: 2px;
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transform: skewX(-12deg);
+    white-space: nowrap;
+}
+
+
 .inputs-container {
     display: flex;
     flex-direction: column;
@@ -71,9 +95,9 @@
 
 .segmentation-generator-form > h2 {
     text-decoration: underline;
-        text-underline-offset: 0.4rem;
-        font-size: 1.4rem;
-        text-decoration-color: var(--primary);
+    text-underline-offset: 0.4rem;
+    font-size: 1.4rem;
+    text-decoration-color: var(--primary);
 }
 
 .segmentation-generator-form > p {

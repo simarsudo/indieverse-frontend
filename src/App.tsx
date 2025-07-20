@@ -10,18 +10,23 @@ function App() {
   const [imageId, setImageId] = React.useState<string | null>(null);
 
   return (
-    <div className="app container">
-      {imageUploaded ? (
-        <SegmentationGeneratorForm image={image} imageId={imageId} />
-      ) : (
-        <ImageUploadForm
-          image={image}
-          setImage={setImage}
-          setImageUploaded={setImageUploaded}
-          setImageId={setImageId}
-        />
-      )}
-    </div>
+    <>
+      <div className="navbar">
+        <p>Image Segmentation App</p>
+      </div>
+      <div className="app container">
+        {imageUploaded ? (
+          <SegmentationGeneratorForm image={image} imageId={imageId} />
+        ) : (
+          <ImageUploadForm
+            image={image}
+            setImage={setImage}
+            setImageUploaded={setImageUploaded}
+            setImageId={setImageId}
+          />
+        )}
+      </div>
+    </>
   );
 }
 
