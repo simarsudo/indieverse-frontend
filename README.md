@@ -2,6 +2,8 @@
 
 A modern web app for generating colorful segmentation masks on images using a FastAPI backend and a React (Vite) frontend.
 
+- **Deployed App:** [https://indieverse-frontend-tmxh.vercel.app/](https://indieverse-frontend-tmxh.vercel.app/)
+
 ---
 
 ## Features
@@ -35,19 +37,11 @@ npm run dev
 ```
 
 **Sample `.env`:**
+
 ```
 VITE_API_BASE_URL=http://localhost:8080
 ```
 
----
-
-## Usage
-
-1. Start both the backend and frontend servers.
-2. Open [http://localhost:5173](http://localhost:5173) in your browser.
-3. Upload an image, click on a region, and view the generated segmentation mask.
-
----
 
 ## Notes
 
