@@ -99,7 +99,12 @@ function ImageUploadForm({
         </div>
       )}
 
-      <FileInput accept="image/*" value={image} onChange={setImage} />
+      <FileInput
+        disabled={isUploading}
+        accept="image/*"
+        value={image}
+        onChange={setImage}
+      />
       <Button isLoading={isUploading} type="submit">
         {currentProgress}
       </Button>

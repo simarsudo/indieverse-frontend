@@ -53,3 +53,11 @@
 .file-input-label.has-file {
   border-color: var(--primary);
 }
+
+.file-input-label:disabled,
+.file-input-label[aria-disabled="true"],
+.file-input:disabled + .file-input-label,
+.file-input-label.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
