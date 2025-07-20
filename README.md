@@ -1,69 +1,55 @@
-# React + TypeScript + Vite
+# Image Segmentation App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web app for generating colorful segmentation masks on images using a FastAPI backend and a React (Vite) frontend.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Upload an image and generate segmentation masks by clicking on regions.
+- Colorful, interactive mask overlays.
+- FastAPI backend for mask generation.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Installation & Setup
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### 1. Clone the repository
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```sh
+git clone https://github.com/simarsudo/indieverse-frontend.git
+cd indieverse-frontend
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Backend Setup (FastAPI)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Follow the instructions in the backend repository:  
+[https://github.com/simarsudo/indieverse-backend](https://github.com/simarsudo/indieverse-backend)
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 3. Frontend Setup (React + Vite)
+
+```sh
+cd frontend/indie-frontend
+cp .env.example .env  # Edit VITE_API_BASE_URL to your backend URL
+npm install
+npm run dev
 ```
+
+**Sample `.env.example`:**
+```
+VITE_API_BASE_URL=http://localhost:8000
+```
+
+---
+
+## Usage
+
+1. Start both the backend and frontend servers.
+2. Open [http://localhost:5173](http://localhost:5173) in your browser.
+3. Upload an image, click on a region, and view the generated segmentation mask.
+
+---
+
+## Notes
+
+- Do **not** commit your `.env` files. They are gitignored.
