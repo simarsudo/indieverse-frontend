@@ -2,7 +2,6 @@ import "./button.css";
 import { Loading } from "../icons/loading";
 
 type Props = {
-  size?: "small" | "medium" | "large";
   disabled?: boolean;
   onClick?: () => void;
   className?: string;
@@ -12,7 +11,6 @@ type Props = {
 };
 
 function Button({
-  size = "medium",
   disabled,
   onClick,
   className = "",
@@ -22,7 +20,7 @@ function Button({
 }: Props) {
   return (
     <button
-      className={`btn ${size} ${className}`}
+      className={`btn ${className}`}
       disabled={disabled}
       onClick={onClick}
       type={type}

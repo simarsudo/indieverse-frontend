@@ -54,7 +54,7 @@ function FileInput({
       }}
       onDrop={handleDrop}
     >
-      <label className="file-input-label">
+      <label className={`file-input-label${value ? ' has-file' : ''}`}>
         <span>
           {dragActive
             ? "Drop file here"

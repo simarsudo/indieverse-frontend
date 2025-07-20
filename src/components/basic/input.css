@@ -12,7 +12,7 @@
   border-radius: 0.375rem;
   background: #111;
   color: #ffffff;
-  font-size: 1rem;
+  font-size: 0.8rem;
   cursor: pointer;
   transition: border-color 0.2s;
 }
@@ -43,4 +43,13 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+  text-underline-position: above;
+}
+
+.file-input:focus + .file-input-label,
+.file-input:not(:placeholder-shown) + .file-input-label,
+.file-input-label.has-file {
+  border-color: var(--primary);
 }
