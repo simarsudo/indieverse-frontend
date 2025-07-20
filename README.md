@@ -30,14 +30,13 @@ Follow the instructions in the backend repository:
 
 ```sh
 cd frontend/indie-frontend
-cp .env.example .env  # Edit VITE_API_BASE_URL to your backend URL
 npm install
 npm run dev
 ```
 
-**Sample `.env.example`:**
+**Sample `.env`:**
 ```
-VITE_API_BASE_URL=http://localhost:8000
+VITE_API_BASE_URL=http://localhost:8080
 ```
 
 ---
