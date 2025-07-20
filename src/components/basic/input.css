@@ -24,11 +24,11 @@
 
 .file-input-label:hover,
 .file-input-label:focus-within {
-  border-color: #6366f1;
+  border-color: var(--primary);
 }
 
 .file-input-wrapper.drag-active .file-input-label {
-  border-color: #6366f1;
+  border-color: var(--primary);
 }
 
 .file-input {
