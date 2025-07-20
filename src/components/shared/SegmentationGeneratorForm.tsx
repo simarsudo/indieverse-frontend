@@ -151,7 +151,11 @@ function SegmentationGeneratorForm({
 
   return (
     <div className="segmentation-generator-form">
-      <h2>Image Segmentation Mask Generator 👺</h2>
+      <h2>Click on the Image to Generate a Segmentation Mask</h2>
+      <p>
+        Select a region by clicking anywhere on the image below. A colorful mask
+        will be generated and overlaid on the selected area.
+      </p>
 
       <div
         className="large-image-preview-container"

@@ -101,6 +101,10 @@ function ImageUploadForm({
       <Button isLoading={isUploading} type="submit">
         {currentProgress}
       </Button>
+      <p className="note">
+        <span>Note:</span> Larger images may take more time to upload and
+        process.
+      </p>
       {error && <div className="error-message">{error}</div>}
     </form>
   );
