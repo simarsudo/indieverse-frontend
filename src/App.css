@@ -126,6 +126,25 @@
     display: block;
 }
 
+.show-mask-toggle {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.show-mask-toggle > input {
+    width: 0.8rem;
+    height: 0.8rem;
+    cursor: pointer;
+}
+
+.show-mask-toggle > span {
+    font-size: 0.8rem;
+    margin: 0;
+    user-select: none;
+}
+
 @keyframes shadow-pulse {
     0% {
         box-shadow: 0 1rem 2rem 0 var(--primary);

@@ -23,6 +23,7 @@ function SegmentationGeneratorForm({
 }: SegmentationGeneratorFormProps) {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [mask, setMask] = useState<MaskData | null>(null);
+  const [showMask, setShowMask] = useState(true);
 
   const imageUrl = useMemo(
     () => (image ? URL.createObjectURL(image) : null),
@@ -175,7 +176,7 @@ function SegmentationGeneratorForm({
           }}
         />
 
-        {mask && (
+        {mask && showMask && (
           <canvas
             ref={(canvas) => {
               if (canvas && mask) {
@@ -193,7 +194,6 @@ function SegmentationGeneratorForm({
                   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
                   ctx.globalCompositeOperation = "source-over";
-
                   ctx.fillStyle = mask.color;
                   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -215,6 +215,15 @@ function SegmentationGeneratorForm({
           />
         )}
       </div>
+
+      <label className="show-mask-toggle">
+        <input
+          type="checkbox"
+          checked={showMask}
+          onChange={() => setShowMask((v) => !v)}
+        />
+        <span>Show Mask Overlay</span>
+      </label>
     </div>
   );
 }
