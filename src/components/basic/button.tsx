@@ -25,7 +25,13 @@ function Button({
       onClick={onClick}
       type={type}
     >
-      {isLoading ? <Loading size="small" /> : children}
+      {isLoading ? (
+        <>
+          {children} <Loading size="small" />
+        </>
+      ) : (
+        children
+      )}
     </button>
   );
 }

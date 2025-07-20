@@ -26,14 +26,10 @@
 }
 
 .loading-icon {
+    margin-left: 6px;
     animation: spin 1s linear infinite;
 }
 
 .btn:hover {
     outline: 1px solid var(--primary);
-}
-
-.btn:focus,
-.btn:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color; 
 }

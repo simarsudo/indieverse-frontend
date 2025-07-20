@@ -50,6 +50,9 @@ function ImageUploadForm({
 }: Props) {
   const [isUploading, setIsUploading] = React.useState<boolean>(false);
   const [error, setError] = React.useState<string | null>(null);
+  const [currentProgress, setCurrentProgress] = React.useState<
+    "Upload" | "Uploading" | "Generating"
+  >("Upload");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -60,9 +63,11 @@ function ImageUploadForm({
 
     setError(null);
     setIsUploading(true);
+    setCurrentProgress("Uploading");
     try {
       const { id } = await uploadImage(image);
       setImageId(id);
+      setCurrentProgress("Generating");
       await generateMask(id);
       setImageUploaded(true);
     } catch (error) {
@@ -73,6 +78,7 @@ function ImageUploadForm({
       }
     } finally {
       setIsUploading(false);
+      setCurrentProgress("Upload");
     }
   };
 
@@ -93,7 +99,7 @@ function ImageUploadForm({
 
       <FileInput accept="image/*" value={image} onChange={setImage} />
       <Button isLoading={isUploading} type="submit">
-        Upload
+        {currentProgress}
       </Button>
       {error && <div className="error-message">{error}</div>}
     </form>
