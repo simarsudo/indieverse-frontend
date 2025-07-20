@@ -10,11 +10,13 @@ type Props = {
   setImageId: React.Dispatch<React.SetStateAction<string | null>>;
 };
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 async function uploadImage(image: File) {
   const formData = new FormData();
   formData.append("image", image);
 
-  const response = await fetch("http://localhost:8000/post/upload", {
+  const response = await fetch(`${API_BASE_URL}/post/upload`, {
     method: "POST",
     body: formData,
   });
@@ -28,7 +30,7 @@ async function uploadImage(image: File) {
 }
 
 async function generateMask(imageId: string) {
-  const response = await fetch("http://localhost:8000/post/generate-mask", {
+  const response = await fetch(`${API_BASE_URL}/post/generate-mask`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ image_id: imageId }),
