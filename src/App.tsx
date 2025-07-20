@@ -9,6 +9,12 @@ function App() {
   const [imageUploaded, setImageUploaded] = React.useState<boolean>(false);
   const [imageId, setImageId] = React.useState<string | null>(null);
 
+  const resetApp = React.useCallback(() => {
+    setImage(null);
+    setImageUploaded(false);
+    setImageId(null);
+  }, []);
+
   return (
     <>
       <div className="navbar">
@@ -16,7 +22,11 @@ function App() {
       </div>
       <div className="app container">
         {imageUploaded ? (
-          <SegmentationGeneratorForm image={image} imageId={imageId} />
+          <SegmentationGeneratorForm
+            image={image}
+            imageId={imageId}
+            resetApp={resetApp}
+          />
         ) : (
           <ImageUploadForm
             image={image}

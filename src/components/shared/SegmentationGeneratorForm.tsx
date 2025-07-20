@@ -1,8 +1,10 @@
 import React, { useState, useCallback, useMemo } from "react";
+import { Button } from "../basic/button";
 
 interface SegmentationGeneratorFormProps {
   image: File | null;
   imageId: string | null;
+  resetApp: () => void; // <-- add this
 }
 
 interface ClickCoordinates {
@@ -20,6 +22,7 @@ const API_BASE_URL = "http://localhost:8000";
 function SegmentationGeneratorForm({
   image,
   imageId,
+  resetApp,
 }: SegmentationGeneratorFormProps) {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [mask, setMask] = useState<MaskData | null>(null);
@@ -216,14 +219,19 @@ function SegmentationGeneratorForm({
         )}
       </div>
 
-      <label className="show-mask-toggle">
-        <input
-          type="checkbox"
-          checked={showMask}
-          onChange={() => setShowMask((v) => !v)}
-        />
-        <span>Show Mask Overlay</span>
-      </label>
+      <div className="controls">
+        <label className="show-mask-toggle">
+          <input
+            type="checkbox"
+            checked={showMask}
+            onChange={() => setShowMask((v) => !v)}
+          />
+          <span>Show Mask Overlay</span>
+        </label>
+        <Button isLoading={false} onClick={resetApp}>
+          Reset image
+        </Button>
+      </div>
     </div>
   );
 }

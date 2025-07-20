@@ -6,7 +6,7 @@ type Props = {
   onClick?: () => void;
   className?: string;
   children?: React.ReactNode;
-  type: "button" | "submit";
+  type?: "button" | "submit";
   isLoading: boolean;
 };
 

@@ -3,6 +3,7 @@
     width: 100vw;
     place-content: center;
     padding: 2rem;
+    padding-top: 7rem;
 }
 
 .navbar {
@@ -12,8 +13,9 @@
     width: 100vw;
     z-index: 100;
     border-bottom: 2px solid var(--primary);
-    padding: 0.8rem 2rem;
+    padding: 0.5rem 2rem;
     box-shadow: 0 1px 3px 0 var(--primary);
+    background-color: var(--bg-primary);
 }
 
 .navbar > p {
@@ -126,8 +128,13 @@
     display: block;
 }
 
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .show-mask-toggle {
-    margin-top: 1rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
